@@ -4,7 +4,6 @@ import time
 import random
 #-----------------------------------------------------------------------------
 #-----------------------------------------------------------------------------
-
 #FOBB VALTOZOK/ADATOK
 
 app = Ursina()
@@ -12,9 +11,7 @@ Sky()
 player = FirstPersonController(position=(0, 5, 0))
 
 fo_szam = random.randint(1, 8)
-lehet = ""
 szamok = [1, 2, 3, 4, 5, 6, 7, 8]
-talalat = False
 #KARAKTER NEVEK MEGADASA
 p1 = input("Mi legyen az elso vertanu neve?: ")
 p2 = input("Mi legyen az masodik vertanu neve?: ")
@@ -51,8 +48,6 @@ def input(key):
         try:
             if rand_szam == fo_szam:
                 Audio("assets/shoot.mp3")   #amikor van talalat 
-                talalat = True
-
                 halal()
             else:
                 try:
@@ -65,8 +60,7 @@ def input(key):
             Audio('assets/gun-dry.mp3')
 
 #-----------------------------------------------------------------------------
-
-
+#ENTITASOK LETREHOZASA
 
 
 ground = Entity(
@@ -114,6 +108,8 @@ enemy3 = duplicate(enemy, x=-3, name = p3)
 enemy_text = Text(text=p1, origin=(-2, -6), scale=3, parent = camera.ui)  
 enemy2_text = Text(text=p2, origin=(0, -6), scale=3, parent = camera.ui) 
 enemy3_text = Text(text=p3, origin=(2, -6), scale=3, parent = camera.ui) 
+#-----------------------------------------------------------------------------
+#ELLENORZOTT FUTTATAS
 
 if p3 != None:
     app.run()
